@@ -169,3 +169,11 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+reside/checkpoints/
+reside/checkpoints_upsample/
+reside/logs/
+
+nhhaze/checkpoints/
+nhhaze/checkpoints_upsample/
+nhhaze/logs/
