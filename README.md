@@ -97,3 +97,6 @@ Pix2pix results for NH-Haze, The images on the left side are generated using Tra
 PSNR and SSIM scores.
 
 ## Acknowledgements:
+
+Code borrowed from this YouTube [tutorial.](https://www.youtube.com/watch?v=SuddDSqGRzg&t=2476s): https://www.youtube.com/watch?v=8-i-0o1-j-Y
+Original project [repo.](https://github.com/AryanPhilip/ECE285-Project) 
