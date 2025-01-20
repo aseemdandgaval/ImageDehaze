@@ -18,7 +18,6 @@ By leveraging pix2pix (a conditional GAN framework), we map hazy images to their
 * **A Discriminator (ConvNet):**
     * Classifies the image as real or fake for adversarial training.
 
-We evaluate the dehazed outputs using:
 
 ## Datasets: 
 
@@ -43,11 +42,36 @@ We used the entire dataset of all 55 image pairs. These were resized to 512x512 
 
 ## Repository Structure: 
 
-
-
-
-
-
+```
+.
+├── images/
+│   ├── ...                    # Images used in the project report
+│
+├── nhhaze/
+│   ├── evaluation/            # Images used for visual inspection for Conv2d
+│   ├── evaluation_upsample/   # Images used for visual inspection for Upsampling
+│   ├── config.py              # Configuration/hyperparameter settings for NH-HAZE
+│   ├── discriminator.py       # Discriminator code for NH-HAZE
+│   ├── generator.py           # Generator code (transposed convolution) for NH-HAZE
+│   ├── generator_upsample.py  # Generator code (nearest neighbor upsampling) for NH-HAZE
+│   ├── nhhaze_dataset.py      # DataLoader for NH-HAZE
+│   ├── train.py               # Training script for NH-HAZE
+│   └── utils.py               # Utility functions (metrics, logging, etc.)
+│
+├── reside/
+│   ├── evaluation/            # Images used for visual inspection for Conv2d
+│   ├── evaluation_upsample/   # Images used for visual inspection for Upsampling
+│   ├── config.py              # Configuration/hyperparameter settings for RESIDE
+│   ├── discriminator.py       # Discriminator code for RESIDE
+│   ├── generator.py           # Generator code (transposed convolution) for RESIDE
+│   ├── generator_upsample.py  # Generator code (nearest neighbor upsampling) for RESIDE
+│   ├── reside_dataset.py      # DataLoader for RESIDE
+│   ├── train.py               # Training script for RESIDE
+│   └── utils.py               # Utility functions (metrics, logging, etc.)
+│
+├── Paper.pdf                  # Project report/paper
+└── README.md                  # Top-level documentation for the entire repository
+```
 
 ## HyperParameters:
 ![Hyperparameters](images/hyperparameters.png)
