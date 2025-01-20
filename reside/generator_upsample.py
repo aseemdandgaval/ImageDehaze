@@ -7,14 +7,14 @@ class Block(nn.Module):
         if down:
             self.conv = nn.Sequential(
                 nn.Conv2d(in_channels, out_channels, 4, 2, 1, bias=False, padding_mode="reflect"),
-                nn.InstanceNorm2d(out_channels),
+                nn.LayerNorm(out_channels),
                 nn.LeakyReLU(0.2) if act == "leaky" else nn.ReLU()
             )
         else:
             self.conv = nn.Sequential(
                 nn.Upsample(scale_factor=2, mode='nearest'),
                 nn.Conv2d(in_channels, out_channels, 3, 1, 1, bias=False),
-                nn.InstanceNorm2d(out_channels),
+                nn.LayerNorm(out_channels),
                 nn.ReLU() if act == "relu" else nn.LeakyReLU(0.2)
             )
 

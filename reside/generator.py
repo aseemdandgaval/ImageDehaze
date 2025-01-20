@@ -7,7 +7,7 @@ class Block(nn.Module):
         self.conv = nn.Sequential(
             nn.Conv2d(in_channels, out_channels, 4, 2, 1, bias=False, padding_mode="reflect") if down
             else nn.ConvTranspose2d(in_channels, out_channels, 4, 2, 1, bias=False),
-            nn.InstanceNorm2d(out_channels),
+            nn.LayerNorm(out_channels),
             nn.ReLU() if act == "relu" else nn.LeakyReLU(0.2),)
 
         self.use_dropout = use_dropout

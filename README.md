@@ -10,13 +10,13 @@ Haze, caused by particles such as dust or smoke, often impairs image clarity and
 By leveraging pix2pix (a conditional GAN framework), we map hazy images to their corresponding haze-free counterparts using paired training data. The model consists of:
 
 ![General Architecture](images/architecture.png)
-* A Generator (U-Net):
-        * Encoder-decoder architecture with skip connections to preserve low-level features.
-        * InstanceNorm in place of Batch Normalization for more stable training.
-        * Nearest Neighbor Upsampling + Convolution instead of transposed convolutions to reduce checkerboard artifacts.
+* **A Generator (U-Net):**
+    * Encoder-decoder architecture with skip connections to preserve low-level features.
+    * LayerNorm in place of BatchNorm for more stable training.
+    * Nearest Neighbor Upsampling + Convolution instead of transposed convolutions to reduce checkerboard artifacts.
 
-* A Discriminator (ConvNet):
-        * Classifies the image as real or fake for adversarial training.
+* **A Discriminator (ConvNet):**
+    * Classifies the image as real or fake for adversarial training.
 
 We evaluate the dehazed outputs using:
 
@@ -56,14 +56,20 @@ We used the entire dataset of all 55 image pairs. These were resized to 512x512 
 ## Metrics and Results:
 We evaluate the dehazed outputs using:
 
-    * **Peak Signal-to-Noise Ratio (PSNR):**
-    * **Structural Similarity Index (SSIM):**
-    * **Visual Inspection:** We compared the dehazed images with the ground truth images to evaluate the quality of the dehazed images.
+1. **Peak Signal-to-Noise Ratio (PSNR)**
+2. **Structural Similarity Index (SSIM)**
+3. **Visual Inspection** 
 
 ![Reside Result](images/p2p_reside.png)
 
+Pix2pix results for RESIDE, The images on the left side are generated using Transpose Convolutions and the ones on the right are generated using Upsampling. Top: Hazy images, Middle: Generated images, Bottom: Ground Truth images.
+
 ![NH-Haze Result](images/p2p_nhhaze.png)
 
+Pix2pix results for NH-Haze, The images on the left side are generated using Transpose Convolutions and the ones on the right are generated using Upsampling. Top: Hazy images, Middle: Generated images, Bottom: Ground Truth images.
+
 ![Scores](images/scores.png)
+
+PSNR and SSIM scores.
 
 ## Acknowledgements:
